@@ -19,7 +19,6 @@ app.post("/", function (req, res) {
 
 //READ
 app.get("/", function (req, res) {
-  console.log("GET was called");
   const query = "SELECT * FROM messages";
 
   db.query(query, function (err, result) {
@@ -33,8 +32,6 @@ app.get("/:id", function (req, res) {
   const id = parseInt(req.params.id);
   const query = "SELECT * FROM messages WHERE id = ?";
   const values = [id];
-  console.log("GET:id was called and id is", id);
-  console.log("all params:", JSON.stringify(req.params));
 
   db.query(query, values, function (err, result) {
     if (err) throw err;

@@ -40,7 +40,7 @@ app.get("/:id", function (req, res) {
     if (found.length > 0) {
       res.status(200).send(found);
     } else {
-      res.status(404).send({ msg: `No message with id ${id} found!` });
+      res.status(404).send({ msg: `No message with id ${values[0]} found!` });
     }
   });
 });
@@ -58,7 +58,7 @@ app.put("/:id", function (req, res) {
     if (result.affectedRows === 0)
       return res
         .status(404)
-        .send({ msg: `No message with id ${values[0]} found!` });
+        .send({ msg: `No message with id ${values[1]} found!` });
 
     res.status(200).send(updated);
   });
